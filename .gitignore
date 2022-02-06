@@ -79,4 +79,5 @@ typings/
 dist
 
 # .idea (PhpStorm)
-.idea/*
+.idea/vcs.xml
+.idea/workspace.xml
