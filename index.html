@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Jeu de pairs</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <section class="container">
+                <a class="navbar-brand" href="index.html">Jeu de pairs</a>
+            </section>
+        </nav>
+
+        <main class="container mt-5">
+          <h1>Jeu de mémoire</h1>
+          <hr>
+
+          <section id="flash-element"></section>
+
+          <section class="card card-body d-flex flex-row align-items-center">
+            <span>Temps écoulé:</span>
+            <b class="ms-2">
+              <time id="timer-element">00:00</time>
+            </b>
+            <div class="ms-auto">
+              <!-- Button trigger modal -->
+              <button
+                type="button"
+                class="btn btn-outline-success"
+                data-bs-toggle="modal"
+                data-bs-target="#staticModal"
+              >
+                Nouvelle partie
+              </button>
+              <button
+                type="button"
+                class="btn btn-outline-info"
+                id="start-level"
+              >
+                Next Level
+              </button>
+            </div>
+          </section>
+
+          <section class="d-flex mt-3">
+            <table class="mx-auto" id="board-element"></table>
+          </section>
+        </main>
+
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          id="staticModal"
+          data-bs-backdrop="static"
+          data-bs-keyboard="false"
+          tabindex="-1"
+          aria-labelledby="staticModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <form class="modal-content" id="form-element">
+
+              <div class="modal-header">
+                <h5 class="modal-title" id="staticModalLabel">
+                  Paramèttre de la partie
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+
+              <div class="modal-body">
+
+                <div class="mb-3 row">
+                  <label for="nb-row" class="col-sm-5 col-form-label">
+                    Nombre de ligne
+                  </label>
+                  <div class="col-sm-7">
+                    <input
+                      class="form-control"
+                      name="nb-row"
+                      id="nb-row"
+                      type="number"
+                      min="4"
+                      value="4"
+                    />
+                  </div>
+                </div>
+
+                <div class="mb-3 row">
+                  <label for="nb-col" class="col-sm-5 col-form-label">
+                    Nombre de colonne
+                  </label>
+                  <div class="col-sm-7">
+                    <input
+                      class="form-control"
+                      name="nb-col"
+                      id="nb-col"
+                      type="number"
+                      min="4"
+                      value="4"
+                    />
+                  </div>
+                </div>
+
+                <div class="mb-3 row">
+                  <label for="nb-matches" class="col-sm-5 col-form-label">
+                    Nombre de matches
+                  </label>
+                  <div class="col-sm-7">
+                    <input
+                      class="form-control"
+                      name="nb-matches"
+                      id="nb-matches"
+                      type="number"
+                      min="2"
+                      value="2"
+                    />
+                  </div>
+                </div>
+
+                <div class="mb-3 row">
+                  <label for="timer" class="col-sm-5 col-form-label">
+                    Timer en (segonde)
+                  </label>
+                  <div class="col-sm-7">
+                    <input
+                      class="form-control"
+                      name="timer"
+                      id="timer"
+                      type="number"
+                      min="30"
+                      max="3600"
+                      value="30"
+                    />
+                  </div>
+                </div>
+
+                <div class="mb-3 row">
+                  <label for="time-increment" class="col-sm-5 col-form-label">
+                    Pas d'incrémentation (segonde)
+                  </label>
+                  <div class="col-sm-7">
+                    <input
+                      class="form-control"
+                      name="time-increment"
+                      id="time-increment"
+                      type="number"
+                      min="5"
+                      max="3600"
+                      value="10"
+                    />
+                  </div>
+                </div>
+
+                <div class="mb-3 row">
+                  <label for="theme" class="col-sm-5 col-form-label">
+                    Themes
+                  </label>
+                  <div class="col-sm-7">
+                    <select class="form-control" name="theme" id="theme">
+                      <option>Pokemon</option>
+                      <option>Fifa</option>
+                    </select>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="modal-footer">
+                <button data-bs-dismiss="modal" type="submit" class="btn btn-outline-success">
+                  Crée la partie
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <script type="module" src="/src/main.ts"></script>
+    </body>
+</html>

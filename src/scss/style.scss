@@ -1,0 +1,40 @@
+@import '../../node_modules/bootstrap';
+
+table {
+  border-collapse: collapse;
+}
+
+td {
+  border: 1px solid #ADB5BDFF;
+  width: 100px;
+  height: 100px;
+}
+
+td > img {
+  width: 100%;
+  height: 100%;
+}
+
+td:not(.matched):not(.wait) {
+  background: linear-gradient(45deg,#e6e7e9 25%,#d8dbdd 25%,#d8dbdd 50%,#e6e7e9 50%,#e6e7e9 75%,#d8dbdd 75%,#d8dbdd 100%);
+}
+
+td:not(.matched) > img,
+td:not(.wait) > img {
+  display: none;
+}
+
+td.matched > img,
+td.wait > img {
+  display: block;
+}
+
+td.wait {
+  background-color: #ffc1078c;
+  cursor: not-allowed;
+}
+
+td.matched {
+  background-color: #38ff008c;
+  cursor: not-allowed;
+}
