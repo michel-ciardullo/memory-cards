@@ -79,4 +79,4 @@ typings/
 dist
 
 # .idea (PhpStorm)
-.idea
+.idea/*

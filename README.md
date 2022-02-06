@@ -1,6 +1,6 @@
 # Jeu de mémoire
 
-## Déroulement du jeu :
+## Déroulement du jeu
 
 L’utilisateur clique sur les cartes pour les retourner  
 S'il arrive à retourner une paire alors les deux cartes restent du côté visible. Sinon elles se retournent face cachée.  
