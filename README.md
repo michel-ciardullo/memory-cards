@@ -3,7 +3,7 @@
 ## Déroulement du jeu :
 
 L’utilisateur clique sur les cartes pour les retourner  
-Si il arrive à retourner une paire alors les deux cartes restent du côté visible. Sinon elles se retournent face cachée.  
+S'il arrive à retourner une paire alors les deux cartes restent du côté visible. Sinon elles se retournent face cachée.  
 Un timer est déclenché au début de la partie.
 
 La partie est finie si toutes les cartes sont retournées ou si le timer est écoulé.
@@ -16,7 +16,7 @@ Le choix des symboles est libre
 
 ## Niveau 2
 
-- Rendre le nombre de case du plateau paramétrable (nombre de lignes et nombre de colonnes)
+- Rendre le nombre de cases du plateau paramétrable (nombre de lignes et nombre de colonnes)
 - Rendre le temps du timer paramétrable (en secondes).
 - Rendre le nombre de cartes similaires paramétrable
 
