@@ -25,10 +25,6 @@ let gTimerValue = 0         // Timer value (seconds)
 let gMaxPairs = 0       // Nombre de pairs max
 let gCountPairs = 0     // Nombre de pairs
 
-// Level
-let gLevel = 0
-let gLevelStarting = false
-
 // Score
 let scores: Array<any> = []
 
@@ -129,8 +125,6 @@ function resetVars() {
   gCanPlay = false        // Le joueur ne peut pas jouer
   gEndGame = false        // La partie est finie/pas commencer
 
-  gLevelStarting = false
-
   clearIntervalTimer()    // Clear le timer
   clearFlash()            // Clear les messages flash
 }
@@ -184,27 +178,11 @@ function endGame() {
   gCanPlay = false
   gEndGame = true
 
-  if ( gLevelStarting ) {
-    scores.push( gCountPairs )
-
-    if ( gLevel < 3 ) {
-      gLevel++
-      setTimeout( () => startLevel( gLevel ), 5000 )
-    } else {
-      drawFlash( 'info',
-        'La partie est términé.<br>'
-        + 'Score: ' + getPercentageScore() + ', <br>'
-        + 'Temps restant: ' + getTimerTextValue() + 's'
-      )
-    }
-  }
-  else {
-    drawFlash( 'info',
-      'La partie est términé.<br>'
-      + 'Score: ' + getPercentageScore() + ', <br>'
-      + 'Temps restant: ' + getTimerTextValue() + 's'
-    )
-  }
+  drawFlash( 'info',
+    'La partie est términé.<br>'
+    + 'Score: ' + getPercentageScore() + ', <br>'
+    + 'Temps restant: ' + getTimerTextValue() + 's'
+  )
 }
 
 /**
@@ -215,64 +193,6 @@ function endGame() {
 function startGame() {
   startTimer( endGame )
   gCanPlay = true
-}
-
-function startLevel( level: number ) {
-  resetVars()
-
-  gLevelStarting = true
-  const themeSelectedValue = getThemeDirectory( 0 )
-
-  switch ( level ) {
-    // 4 x 4 = 8 -> 2 pair
-    case 0:
-      gNumberMatches = 2
-
-      // Timer
-      gTimerIncrement = 15
-      gTimerValue = 30
-
-      makeBoard( 4, 4, themeSelectedValue )
-      break
-
-    // 6 x 6 = 36
-    // 36 / 2 = 8
-    // 8 pairs
-    case 1:
-      gNumberMatches = 2
-
-      // Timer
-      gTimerIncrement = 10
-      gTimerValue = 60
-
-      makeBoard( 6, 6, themeSelectedValue )
-      break
-
-    // 5 x 6 = 30
-    // 30 / 3 = 10
-    // 10 triades
-    case 2:
-      gNumberMatches = 3
-
-      // Timer
-      gTimerIncrement = 5
-      gTimerValue = 90
-
-      makeBoard( 5, 6, themeSelectedValue )
-      break
-
-    default:
-      gLevelStarting = false
-      break
-  }
-
-  if ( gLevelStarting ) {
-    startGame()
-  }
-}
-
-function onClickStartLevel0() {
-  startLevel( 0 )
 }
 
 function matchedContinue() {
@@ -496,11 +416,7 @@ function main() {
 
   // @ts-ignore
   document.getElementById('form-element')
-    .addEventListener( 'submit', onClickStartLevel0 )
-
-  // @ts-ignore
-  document.getElementById( 'start-level')
-    .addEventListener( 'click', onSubmitNewGame )
+    .addEventListener( 'submit', onSubmitNewGame )
 }
 
 // Start event listener dom content loaded

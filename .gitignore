@@ -77,3 +77,6 @@ typings/
 
 # vite build output
 dist
+
+# .idea (PhpStorm)
+.idea
